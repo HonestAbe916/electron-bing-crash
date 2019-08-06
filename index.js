@@ -1,10 +1,6 @@
 const {ipcRenderer, remote} = require('electron')
 const form = document.getElementById('search-form')
 
-remote.session.defaultSession.clearStorageData(
-	{storages : ['appcache', 'cookies', 'filesystem', 'indexdb', 'localstorage', 'shadercache', 'websql', 'serviceworkers', 'cachestorage']},
-)
-
 onload = () => {
 	const webview = document.querySelector('webview')
 	webview.addEventListener('dom-ready', () => {

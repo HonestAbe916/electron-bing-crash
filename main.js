@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain, session} = require('electron')
 
 let mainWindow
 
@@ -10,12 +10,20 @@ function createWindow () {
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
+      nativeWindowOpen: true,
     },
   })
+
+  const storages = {storages : ['cookies']}
+  session.defaultSession.clearStorageData(storages, () => {
+    console.log('storage data cleared')
+  })
+
   mainWindow.loadFile('index.html')
   mainWindow.on('closed', function () {
     mainWindow = null
   })
+
 }
 
 app.on('ready', () => {
