@@ -17,7 +17,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "v5.0.1"
+    "electron": "v9.4.0"
   },
   "dependencies": {
     "do-wrapper": "^3.20.0",
